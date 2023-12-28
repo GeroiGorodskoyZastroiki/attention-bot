@@ -18,8 +18,10 @@ app = Client('my_account')
 async def send_random_message():
     while True:
         # Генерация случайного времени от 6 до 12 часов
-        delay_hours = random.randint(6, 12)
-        delay_minutes = random.randint(0, 59)
+        # delay_hours = random.randint(6, 12)
+        delay_hours = random.randint(1, 1)
+        # delay_minutes = random.randint(0, 59)
+        delay_minutes = random.randint(1, 1)
         random_time = timedelta(hours=delay_hours, minutes=delay_minutes)
 
         # Текущее время
@@ -29,8 +31,8 @@ async def send_random_message():
         send_time = current_time + random_time
 
         # Проверка, попадает ли время отправки в запрещённый временной интервал (01:00 - 07:00)
-        if send_time.time() >= datetime.strptime('01:00:00', '%H:%M:%S').time() and send_time.time() < datetime.strptime('07:00:00', '%H:%M:%S').time():
-            continue
+        #if send_time.time() >= datetime.strptime('01:00:00', '%H:%M:%S').time() and send_time.time() < datetime.strptime('07:00:00', '%H:%M:%S').time():
+            #continue
 
         print(f"Следующее сообщение будет отправлено {send_time.strftime('%d.%m.%y %H:%M')}")
         # Рассчитываем задержку в секундах
