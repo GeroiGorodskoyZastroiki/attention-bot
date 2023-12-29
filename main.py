@@ -10,18 +10,20 @@ load_dotenv('.env')
 
 # Получение user_id из .env файла
 user_id = int(os.getenv('USER_ID'))
+api_id = int(os.getenv('API_ID'))
+api_hash = str(os.getenv('API_HASH'))
 
 # Инициализация клиента Pyrogram
-app = Client('my_account')
+app = Client('my_account', api_id=api_id, api_hash=api_hash)
 
 # Функция для отправки сообщения
 async def send_random_message():
     while True:
         # Генерация случайного времени от 6 до 12 часов
         # delay_hours = random.randint(6, 12)
-        delay_hours = random.randint(1, 1)
+        delay_hours = random.randint(0, 0)
         # delay_minutes = random.randint(0, 59)
-        delay_minutes = random.randint(1, 1)
+        delay_minutes = random.randint(40, 41)
         random_time = timedelta(hours=delay_hours, minutes=delay_minutes)
 
         # Текущее время
